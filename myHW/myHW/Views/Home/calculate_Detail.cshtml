@@ -1,4 +1,4 @@
-﻿@model myHW.Models.calculateViewModels
+﻿@model IEnumerable<myHW.Models.calculateViewModels>
 
 @{
     Layout = null;
@@ -14,21 +14,16 @@
                 <th>金額</th>
             </tr>
           
-
+           @foreach (var items in @Model)
+           {
             <tr>
-                <td>@Model.ID</td>
-                <td>@Model.Type</td>
-                <td>@Model.CreateTime</td>
-                <td>@Model.Money</td>
+                <td>@items.ID</td>
+                <td>@items.Type</td>
+                <td>@items.CreateTime</td>
+                <td>@items.Money</td>
             </tr>
-           
+           }
 
-
-
-
-
-
-         
         </table>
     </div>
 </div>
