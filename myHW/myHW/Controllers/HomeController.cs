@@ -33,5 +33,12 @@ namespace myHW.Controllers
 
             return View();
         }
+        [ChildActionOnly]
+        public ActionResult calculate_Detail()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

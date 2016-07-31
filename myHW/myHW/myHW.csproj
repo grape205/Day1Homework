@@ -202,6 +202,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\calculate.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -270,6 +271,7 @@
     <Content Include="Views\Shared\_header.cshtml" />
     <Content Include="Views\Shared\_footer.cshtml" />
     <Content Include="Views\Home\calculate.cshtml" />
+    <Content Include="Views\Home\calculate_Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
