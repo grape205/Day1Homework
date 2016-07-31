@@ -5,7 +5,7 @@ using System.Web;
 
 namespace myHW.Models
 {
-    public class calculate
+    public class calculateViewModels
     {
         public int ID { get; set; }
         public string Type { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using myHW.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,9 +37,49 @@ namespace myHW.Controllers
         [ChildActionOnly]
         public ActionResult calculate_Detail()
         {
+            //var model = new List<calculateViewModels>();
+            //model.Add(new calculateViewModels()
+            var model = new calculateViewModels
+            {
+                ID=1,
+                Type="收入",
+                Money=100,
+                CreateTime=DateTime.Now,
+                Note="備註一"
+            };
+
+            //model.Add(new calculateViewModels()
+            //{
+            //    ID = 2,
+            //    Type = "支出",
+            //    Money = 500,
+            //    CreateTime = DateTime.Now,
+            //    Note = "備註一"
+            //});
+
+            //model.Add(new calculateViewModels()
+            //{
+            //    ID = 1,
+            //    Type = "收入",
+            //    Money = 600,
+            //    CreateTime = DateTime.Now,
+            //    Note = "備註一"
+            //});
+
+            //model.Add(new calculateViewModels()
+            //{
+            //    ID = 1,
+            //    Type = "收入",
+            //    Money = 100,
+            //    CreateTime = DateTime.Now,
+            //    Note = "備註一"
+            //});
+
+
+
             ViewBag.Message = "Your contact page.";
 
-            return View();
+            return View(model);
         }
     }
 }
