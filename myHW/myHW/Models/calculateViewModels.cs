@@ -5,7 +5,7 @@ using System.Web;
 
 namespace myHW.Models
 {
-    public class calculateViewModels
+    public  class calculateViewModels
     {
         public int ID { get; set; }
         public string Type { get; set; }
@@ -13,4 +13,6 @@ namespace myHW.Models
         public DateTime CreateTime { get; set; }
         public string Note { get; set; }
     }
+
+
 }
