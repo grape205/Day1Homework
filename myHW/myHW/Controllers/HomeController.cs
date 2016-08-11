@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using myHW.Service;
 namespace myHW.Controllers
 {
     public class HomeController : Controller
     {
+        //private SkillTreeHomeworkEntities db = new SkillTreeHomeworkEntities();
+        private readonly AccountBookService _BookSvc;
+        public HomeController()
+        {
+            _BookSvc = new AccountBookService();
+        }
         public ActionResult Index()
         {
             return View();
@@ -37,46 +43,49 @@ namespace myHW.Controllers
         [ChildActionOnly]
         public ActionResult calculate_Detail()
         {
-            var model = new List<calculateViewModels>();
-            model.Add(new calculateViewModels()
-            {
-                ID=1,
-                Type="收入",
-                Money=100,
-                CreateTime=DateTime.Now,
-                Note="備註一"
-            });
+            IList<calculateViewModels> data = _BookSvc.GetAccountBookDetail();
+            return View(data);
 
-            model.Add(new calculateViewModels()
-            {
-                ID = 2,
-                Type = "支出",
-                Money = 500,
-                CreateTime = DateTime.Now,
-                Note = "備註一"
-            });
+          //var model = new List<calculateViewModels>();
+          //  model.Add(new calculateViewModels()
+          //  {
+          //      ID=1,
+          //      Type="收入",
+          //      Money=100,
+          //      CreateTime=DateTime.Now,
+          //      Note="備註一"
+          //  });
 
-            model.Add(new calculateViewModels()
-            {
-                ID = 1,
-                Type = "收入",
-                Money = 600,
-                CreateTime = DateTime.Now,
-                Note = "備註一"
-            });
+            //  model.Add(new calculateViewModels()
+            //  {
+            //      ID = 2,
+            //      Type = "支出",
+            //      Money = 500,
+            //      CreateTime = DateTime.Now,
+            //      Note = "備註一"
+            //  });
 
-            model.Add(new calculateViewModels()
-            {
-                ID = 1,
-                Type = "收入",
-                Money = 100,
-                CreateTime = DateTime.Now,
-                Note = "備註一"
-            });
-            
-            ViewBag.Message = "Your contact page.";
+            //  model.Add(new calculateViewModels()
+            //  {
+            //      ID = 1,
+            //      Type = "收入",
+            //      Money = 600,
+            //      CreateTime = DateTime.Now,
+            //      Note = "備註一"
+            //  });
 
-            return View(model);
+            //  model.Add(new calculateViewModels()
+            //  {
+            //      ID = 1,
+            //      Type = "收入",
+            //      Money = 100,
+            //      CreateTime = DateTime.Now,
+            //      Note = "備註一"
+            //  });
+
+            //  ViewBag.Message = "Your contact page.";
+
+            //return View(model);
         }
     }
 }
