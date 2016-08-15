@@ -22,3 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
+td.Expense 
+{
+    color:red;
+}
+
+td.Income 
+{
+    color:blue;
+}
+

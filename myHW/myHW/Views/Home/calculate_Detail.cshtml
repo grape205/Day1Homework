@@ -1,4 +1,5 @@
-﻿@model IEnumerable<myHW.Models.calculateViewModels>
+﻿@using myHW.Helpers
+@model IEnumerable<myHW.Models.calculateViewModels>
 
 @{
     Layout = null;
@@ -18,8 +19,8 @@
            {
             <tr>
                 <td>@items.ID</td>
-                <td>@items.Type</td>
-                <td>@items.CreateTime</td>
+                <td class="@HtmlExtensions.setColorCategoryyy(items.Type)">@items.Type</td>
+                <td>@string.Format("{0:yyyy-MM-dd}", items.CreateTime)</td>
                 <td>@items.Money</td>
             </tr>
            }

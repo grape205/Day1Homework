@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -17,9 +18,9 @@ namespace myHW.Models
 
     public enum CategoryyyType
     {
-        [Description("收入")]
+       [Display(Name ="收入")]
         Income= 0,
-        [Description("支出")]
+       [Display(Name = "支出")]
         Expense = 1,
     }
 
