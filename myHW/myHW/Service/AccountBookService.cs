@@ -17,7 +17,7 @@ namespace myHW.Service
         public IList<calculateViewModels> GetAccountBookDetail()
         {
             HtmlExtensions.EnumDisplayNameFor((CategoryyyType)Enum.GetValues(typeof(CategoryyyType)).GetValue(1));
-            IList<calculateViewModels> model = _db.AccountBook.Select(x => x)
+            IList<calculateViewModels> model = _db.AccountBook.Select(x => x).OrderByDescending(x=>x.Dateee)
                          .ToList() // return int[]
                          .Select((x, index) => new calculateViewModels
                          {
@@ -31,7 +31,20 @@ namespace myHW.Service
 
             return model;
         }
-
+        public bool Calculate_Add(AccountBook _dt)
+        {
+            try
+            {
+                _dt.Id = Guid.NewGuid();
+                _db.AccountBook.Add(_dt);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
     }
 }

@@ -9,7 +9,7 @@ namespace myHW.Controllers
 {
     public class HomeController : Controller
     {
-        //private SkillTreeHomeworkEntities db = new SkillTreeHomeworkEntities();
+        private SkillTreeHomeworkEntities db = new SkillTreeHomeworkEntities();
         private readonly AccountBookService _BookSvc;
         public HomeController()
         {
@@ -46,15 +46,15 @@ namespace myHW.Controllers
             IList<calculateViewModels> data = _BookSvc.GetAccountBookDetail();
             return View(data);
 
-          //var model = new List<calculateViewModels>();
-          //  model.Add(new calculateViewModels()
-          //  {
-          //      ID=1,
-          //      Type="收入",
-          //      Money=100,
-          //      CreateTime=DateTime.Now,
-          //      Note="備註一"
-          //  });
+            //var model = new List<calculateViewModels>();
+            //  model.Add(new calculateViewModels()
+            //  {
+            //      ID=1,
+            //      Type="收入",
+            //      Money=100,
+            //      CreateTime=DateTime.Now,
+            //      Note="備註一"
+            //  });
 
             //  model.Add(new calculateViewModels()
             //  {
@@ -86,6 +86,15 @@ namespace myHW.Controllers
             //  ViewBag.Message = "Your contact page.";
 
             //return View(model);
+        }
+
+        public ActionResult calculate_Add(AccountBook _dt)
+        {
+            if (_BookSvc.Calculate_Add(_dt))
+            {
+                return RedirectToAction("calculate");
+            }
+            return RedirectToAction("calculate");
         }
     }
 }
